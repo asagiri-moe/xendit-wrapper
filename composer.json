@@ -1,0 +1,56 @@
+{
+    "name": "asagiri-moe/xendit-wrapper",
+    "description": "A Laravel Wrapper for Xendit Payment Gateway (ID/PH)",
+    "keywords": [
+        "asagiri-moe",
+        "xendit-wrapper"
+    ],
+    "homepage": "https://github.com/asagiri-moe/xendit-wrapper",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Fernando Dioni",
+            "email": "gfdioni@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0",
+        "xendit/xendit-php": "^2.17"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "AsagiriMoe\\XenditWrapper\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AsagiriMoe\\XenditWrapper\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AsagiriMoe\\XenditWrapper\\XenditWrapperServiceProvider"
+            ],
+            "aliases": {
+                "XenditWrapper": "AsagiriMoe\\XenditWrapper\\XenditWrapperFacade"
+            }
+        }
+    }
+}
