@@ -6,6 +6,8 @@ use Xendit\Xendit;
 use Xendit\EWallets;
 use Xendit\QRCode;
 use Xendit\Exceptions\ApiException;
+use chillerlan\QRCode\QRCode as QRCodePrint;
+use chillerlan\QRCode\QROptions;
 
 class XenditWrapper
 {
@@ -142,6 +144,11 @@ class XenditWrapper
         try
         {
             $QRCode = QRCode::create($params);
+
+            $QRPrint = new QRCodePrint;
+
+            $QRCode['qr_img'] = $QRPrint->render($QRCode['qr_string']);
+            
         }
           catch(ApiException $ex)
         {
